@@ -1,0 +1,41 @@
+.topbar{
+
+height:75px;
+
+background:#0D2233;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 30px;
+
+border-bottom:1px solid #173A56;
+
+}
+
+.topbar h2{
+
+color:white;
+
+}
+
+.topbar p{
+
+color:#8FA8BE;
+
+}
+
+.usuario{
+
+display:flex;
+
+gap:20px;
+
+color:white;
+
+font-size:28px;
+
+}
