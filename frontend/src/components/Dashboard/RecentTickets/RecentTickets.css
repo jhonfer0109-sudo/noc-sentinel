@@ -1,0 +1,31 @@
+.tickets-card {
+  margin-top: 30px;
+  background: #11253d;
+  border-radius: 18px;
+  padding: 20px;
+}
+
+.tickets-card h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  color: #9fb4cb;
+}
+
+td {
+  color: white;
+  border-top: 1px solid #203852;
+}
