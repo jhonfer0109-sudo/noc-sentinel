@@ -1,0 +1,237 @@
+.ticket-table{
+
+    margin-top:40px;
+
+    background:#15263f;
+
+    padding:25px;
+
+    border-radius:16px;
+
+}
+
+.ticket-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.ticket-header h2{
+
+    margin:0;
+
+    color:white;
+
+}
+
+.ticket-header input{
+
+    width:280px;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:#1d3354;
+
+    color:white;
+
+}
+
+.ticket-header input:focus{
+
+    outline:2px solid #20c997;
+
+}
+
+.ticket-table table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+.ticket-table th{
+
+    background:#1d3354;
+
+    padding:15px;
+
+    text-align:left;
+
+}
+
+.ticket-table td{
+
+    padding:18px 15px;
+
+    border-bottom:1px solid #274264;
+
+}
+
+.ticket-table tr{
+
+    transition:.25s;
+
+}
+
+.ticket-table tr:hover{
+
+    background:#1d3354;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    color:white;
+
+    font-size:12px;
+
+    font-weight:700;
+
+}
+
+.prioridad-crítica{
+
+    background:#dc3545;
+
+}
+
+.prioridad-alta{
+
+    background:#fd7e14;
+
+}
+
+.prioridad-media{
+
+    background:#ffc107;
+
+    color:#222;
+
+}
+
+.prioridad-baja{
+
+    background:#20c997;
+
+}
+
+.estado-nuevo{
+
+    background:#0d6efd;
+
+}
+
+.estado-asignado{
+
+    background:#6f42c1;
+
+}
+
+.estado-en-progreso{
+
+    background:#20c997;
+
+}
+
+.estado-cerrado{
+
+    background:#6c757d;
+
+}
+
+.sla-container{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+.sla-bar{
+
+    width:90px;
+
+    height:8px;
+
+    background:#274264;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.sla-fill{
+
+    height:100%;
+
+    background:#20c997;
+
+}
+
+.acciones{
+
+    display:flex;
+
+    gap:10px;
+
+}
+
+.ticket-table button{
+
+    border:none;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+
+.btn-ver{
+
+    background:#20c997;
+
+    color:white;
+
+}
+
+.btn-editar{
+
+    background:#3b82f6;
+
+    color:white;
+
+}
+
+.ticket-table button:hover{
+
+    transform:translateY(-2px);
+
+    opacity:.95;
+
+}
