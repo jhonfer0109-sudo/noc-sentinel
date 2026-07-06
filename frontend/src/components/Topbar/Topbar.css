@@ -20,22 +20,166 @@ border-bottom:1px solid #173A56;
 
 color:white;
 
+margin:0;
+
+font-size:24px;
+
 }
 
 .topbar p{
 
 color:#8FA8BE;
 
+margin-top:5px;
+
 }
 
-.usuario{
+.topbar-right{
 
 display:flex;
 
-gap:20px;
+align-items:center;
+
+gap:30px;
+
+}
+
+.notification{
+
+position:relative;
 
 color:white;
 
+cursor:pointer;
+
 font-size:28px;
+
+}
+
+.badge{
+
+position:absolute;
+
+top:-8px;
+
+right:-8px;
+
+background:#ff4d4f;
+
+color:white;
+
+font-size:11px;
+
+padding:2px 6px;
+
+border-radius:50px;
+
+font-weight:bold;
+
+}
+
+.profile{
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+color:white;
+
+cursor:pointer;
+
+position:relative;
+
+padding:8px 12px;
+
+border-radius:10px;
+
+transition:.25s;
+
+}
+
+.profile:hover{
+
+background:#13324D;
+
+}
+
+.profile-info{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.profile-info strong{
+
+font-size:14px;
+
+}
+
+.profile-info small{
+
+color:#8FA8BE;
+
+font-size:12px;
+
+}
+
+.profile-menu{
+
+position:absolute;
+
+top:60px;
+
+right:0;
+
+width:220px;
+
+background:#10293E;
+
+border:1px solid #1E4B6F;
+
+border-radius:10px;
+
+overflow:hidden;
+
+box-shadow:0 10px 30px rgba(0,0,0,.4);
+
+z-index:999;
+
+}
+
+.profile-menu button{
+
+width:100%;
+
+background:none;
+
+border:none;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:14px;
+
+cursor:pointer;
+
+color:white;
+
+font-size:15px;
+
+transition:.2s;
+
+}
+
+.profile-menu button:hover{
+
+background:#173A56;
 
 }

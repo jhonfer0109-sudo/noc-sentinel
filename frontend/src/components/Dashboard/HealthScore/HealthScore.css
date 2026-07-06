@@ -1,0 +1,73 @@
+.health-card{
+
+    background:#13283D;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    border:1px solid #214564;
+
+    margin-bottom:30px;
+
+}
+
+.health-card h2{
+
+    margin:0;
+
+    color:white;
+
+}
+
+.health-score{
+
+    font-size:60px;
+
+    font-weight:bold;
+
+    margin-top:20px;
+
+}
+
+.health-state{
+
+    color:#8FA8BE;
+
+    font-size:18px;
+
+    margin-bottom:20px;
+
+}
+
+.health-bar{
+
+    width:100%;
+
+    height:14px;
+
+    background:#20384F;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+}
+
+.health-progress{
+
+    height:100%;
+
+    transition:1s;
+
+}
+
+.health-card small{
+
+    display:block;
+
+    margin-top:18px;
+
+    color:#7E95A9;
+
+}

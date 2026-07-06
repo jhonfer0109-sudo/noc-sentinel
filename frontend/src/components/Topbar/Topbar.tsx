@@ -1,41 +1,110 @@
 import "./Topbar.css";
 
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+
 import NotificationsIcon from "@mui/icons-material/Notifications";
-
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
+import LogoutIcon from "@mui/icons-material/Logout";
 
-export default function Topbar(){
+export default function Topbar() {
 
-return(
+    const navigate = useNavigate();
 
-<div className="topbar">
+    const [menuOpen, setMenuOpen] = useState(false);
 
-<div>
+    const nombre = localStorage.getItem("nombre") || "Administrador";
 
-<h2>
+    const rol = localStorage.getItem("rol") || "Administrador";
 
-¡Hola Carlos Gómez!
+    function cerrarSesion() {
 
-</h2>
+        localStorage.removeItem("token");
+        localStorage.removeItem("nombre");
+        localStorage.removeItem("rol");
 
-<p>
+        navigate("/login");
 
-Centro Inteligente de Operaciones
+    }
 
-</p>
+    return (
 
-</div>
+        <div className="topbar">
 
-<div className="usuario">
+            <div>
 
-<NotificationsIcon/>
+                <h2>
 
-<AccountCircleIcon/>
+                    ¡Hola {nombre}!
 
-</div>
+                </h2>
 
-</div>
+                <p>
 
-)
+                    Centro Inteligente de Operaciones
+
+                </p>
+
+            </div>
+
+            <div className="topbar-right">
+
+                <div className="notification">
+
+                    <NotificationsIcon />
+
+                    <span className="badge">
+
+                        3
+
+                    </span>
+
+                </div>
+
+                <div
+                    className="profile"
+                    onClick={() => setMenuOpen(!menuOpen)}
+                >
+
+                    <AccountCircleIcon />
+
+                    <div className="profile-info">
+
+                        <strong>{nombre}</strong>
+
+                        <small>{rol}</small>
+
+                    </div>
+
+                    <ArrowDropDownIcon />
+
+                    {
+
+                        menuOpen && (
+
+                            <div className="profile-menu">
+
+                                <button onClick={cerrarSesion}>
+
+                                    <LogoutIcon />
+
+                                    Cerrar sesión
+
+                                </button>
+
+                            </div>
+
+                        )
+
+                    }
+
+                </div>
+
+            </div>
+
+        </div>
+
+    );
 
 }

@@ -1,73 +1,91 @@
 .sidebar{
 
-width:250px;
+    width:250px;
 
-background:#0B1E2D;
+    background:#0B1E2D;
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-padding:20px;
+    padding:20px;
 
-border-right:1px solid #12314B;
+    border-right:1px solid #12314B;
 
 }
 
 .logo{
 
-display:flex;
+    display:flex;
 
-align-items:center;
+    align-items:center;
 
-gap:10px;
+    gap:10px;
 
-font-size:22px;
+    font-size:22px;
 
-font-weight:700;
+    font-weight:700;
 
-color:#19E3A6;
+    color:#19E3A6;
 
-margin-bottom:50px;
+    margin-bottom:50px;
 
 }
 
 nav{
 
-display:flex;
+    display:flex;
 
-flex-direction:column;
+    flex-direction:column;
 
-gap:15px;
-
-}
-
-nav button{
-
-background:none;
-
-border:none;
-
-color:white;
-
-display:flex;
-
-gap:15px;
-
-padding:15px;
-
-border-radius:10px;
-
-font-size:16px;
-
-cursor:pointer;
-
-transition:.25s;
+    gap:15px;
 
 }
 
-nav button:hover{
+/* ===== Enlaces del menú ===== */
 
-background:#13324D;
+.menu-link{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:15px;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    transition:.25s;
+
+}
+
+.menu-link:hover{
+
+    background:#13324D;
+
+}
+
+/* ===== Opción activa ===== */
+
+.menu-link.active{
+
+    background:#19E3A6;
+
+    color:#0B1E2D;
+
+    font-weight:700;
+
+}
+
+.menu-link svg{
+
+    font-size:22px;
 
 }

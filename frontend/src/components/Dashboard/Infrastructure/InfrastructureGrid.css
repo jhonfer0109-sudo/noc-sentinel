@@ -1,0 +1,25 @@
+.infra-section{
+
+    margin-top:35px;
+
+}
+
+.infra-section h2{
+
+    margin-bottom:20px;
+
+    color:white;
+
+    font-size:26px;
+
+}
+
+.infra-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:20px;
+
+}

@@ -1,87 +1,96 @@
 import "./Sidebar.css";
 
+import { NavLink } from "react-router-dom";
+
 import DashboardIcon from "@mui/icons-material/Dashboard";
-
 import ConfirmationNumberIcon from "@mui/icons-material/ConfirmationNumber";
-
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-
 import GroupsIcon from "@mui/icons-material/Groups";
-
 import AnalyticsIcon from "@mui/icons-material/Analytics";
-
 import SettingsIcon from "@mui/icons-material/Settings";
-
 import ShieldIcon from "@mui/icons-material/Shield";
 
-export default function Sidebar(){
+export default function Sidebar() {
 
-return(
+    return (
 
-<div className="sidebar">
+        <div className="sidebar">
 
-<div className="logo">
+            <div className="logo">
 
-<ShieldIcon/>
+                <ShieldIcon />
 
-<span>NOC Sentinel</span>
+                <span>NOC Sentinel</span>
 
-</div>
+            </div>
 
-<nav>
+            <nav>
 
-<button>
+                <NavLink
+                    to="/"
+                    end
+                    className={({ isActive }) =>
+                        isActive ? "menu-link active" : "menu-link"
+                    }
+                >
+                    <DashboardIcon />
+                    <span>Inicio</span>
+                </NavLink>
 
-<DashboardIcon/>
+                <NavLink
+                    to="/tickets"
+                    className={({ isActive }) =>
+                        isActive ? "menu-link active" : "menu-link"
+                    }
+                >
+                    <ConfirmationNumberIcon />
+                    <span>Tickets</span>
+                </NavLink>
 
-Inicio
+                <NavLink
+                    to="/alerts"
+                    className={({ isActive }) =>
+                        isActive ? "menu-link active" : "menu-link"
+                    }
+                >
+                    <WarningAmberIcon />
+                    <span>Alertas</span>
+                </NavLink>
 
-</button>
+                <NavLink
+                    to="/clients"
+                    className={({ isActive }) =>
+                        isActive ? "menu-link active" : "menu-link"
+                    }
+                >
+                    <GroupsIcon />
+                    <span>Clientes</span>
+                </NavLink>
 
-<button>
+                <NavLink
+                    to="/reports"
+                    className={({ isActive }) =>
+                        isActive ? "menu-link active" : "menu-link"
+                    }
+                >
+                    <AnalyticsIcon />
+                    <span>Reportes</span>
+                </NavLink>
 
-<ConfirmationNumberIcon/>
+                <NavLink
+                    to="/settings"
+                    className={({ isActive }) =>
+                        isActive ? "menu-link active" : "menu-link"
+                    }
+                >
+                    <SettingsIcon />
+                    <span>Configuración</span>
+                </NavLink>
 
-Tickets
+            </nav>
 
-</button>
+        </div>
 
-<button>
-
-<WarningAmberIcon/>
-
-Alertas
-
-</button>
-
-<button>
-
-<GroupsIcon/>
-
-Clientes
-
-</button>
-
-<button>
-
-<AnalyticsIcon/>
-
-Reportes
-
-</button>
-
-<button>
-
-<SettingsIcon/>
-
-Configuración
-
-</button>
-
-</nav>
-
-</div>
-
-)
+    );
 
 }
