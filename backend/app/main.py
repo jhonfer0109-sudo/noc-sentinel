@@ -1,32 +1,34 @@
 from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.auth import router as auth_router
+
+from app.core.config import settings
+from app.core.database import Base
+from app.core.database import engine
+
+import app.models.user
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="NOC Sentinel API",
-    description="Backend del sistema NOC Sentinel",
-    version="0.1.0"
+
+    title=settings.APP_NAME,
+
+    version=settings.VERSION
+
 )
 
-# Configuración CORS
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+app.include_router(auth_router)
+
 
 @app.get("/")
-def inicio():
-    return {
-        "application": "NOC Sentinel",
-        "version": "0.1.0",
-        "status": "ONLINE",
-        "mode": "DEMO"
-    }
 
-@app.get("/health")
-def health():
+def root():
+
     return {
-        "status": "OK"
+
+        "message": "NOC Sentinel API",
+
+        "version": settings.VERSION
+
     }
