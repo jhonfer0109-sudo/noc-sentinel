@@ -1,22 +1,16 @@
 export interface Ticket{
 
-    id:number;
-
-    numero:string;
+    id:string;
 
     titulo:string;
 
     cliente:string;
 
-    prioridad:string;
+    prioridad:"Alta"|"Media"|"Baja";
 
-    estado:string;
+    estado:"Abierto"|"En Progreso"|"Resuelto";
 
     sla:number;
-
-    tecnico:string;
-
-    fecha:string;
 
     descripcion:string;
 

@@ -2,7 +2,7 @@ import "./HealthScore.css";
 
 interface Props {
 
-    score: number;
+    score:number;
 
 }
 
@@ -10,72 +10,163 @@ export default function HealthScore({
 
     score
 
-}: Props) {
+}:Props){
 
-    let estado = "Excelente";
+    const radius=70;
 
-    let color = "#20c997";
+    const circumference=2*Math.PI*radius;
 
-    if (score < 95) {
+    const offset=circumference-(score/100)*circumference;
 
-        estado = "Bueno";
+    let color="#20c997";
 
-        color = "#ffc107";
+    let estado="Excelente";
 
-    }
+    if(score<95){
 
-    if (score < 85) {
+        color="#ffc107";
 
-        estado = "Crítico";
-
-        color = "#dc3545";
+        estado="Bueno";
 
     }
 
-    return (
+    if(score<85){
+
+        color="#dc3545";
+
+        estado="Crítico";
+
+    }
+
+    return(
 
         <div className="health-card">
 
-            <h2>
+            <div className="health-left">
 
-                ❤️ Health Score
+                <svg
+                    className="health-circle"
+                    width="180"
+                    height="180"
+                >
 
-            </h2>
+                    <circle
 
-            <div
-                className="health-score"
-                style={{
-                    color
-                }}
-            >
+                        cx="90"
 
-                {score.toFixed(1)}%
+                        cy="90"
+
+                        r={radius}
+
+                        className="health-bg"
+
+                    />
+
+                    <circle
+
+                        cx="90"
+
+                        cy="90"
+
+                        r={radius}
+
+                        className="health-progress"
+
+                        style={{
+
+                            stroke:color,
+
+                            strokeDasharray:circumference,
+
+                            strokeDashoffset:offset
+
+                        }}
+
+                    />
+
+                    <text
+
+                        x="90"
+
+                        y="88"
+
+                        className="health-value"
+
+                    >
+
+                        {score.toFixed(0)}%
+
+                    </text>
+
+                    <text
+
+                        x="90"
+
+                        y="112"
+
+                        className="health-label"
+
+                    >
+
+                        {estado}
+
+                    </text>
+
+                </svg>
 
             </div>
 
-            <div className="health-state">
+            <div className="health-right">
 
-                {estado}
+                <h2>
+
+                    ❤️ Health Score
+
+                </h2>
+
+                <p>
+
+                    Estado general de toda la infraestructura.
+
+                </p>
+
+                <div className="health-list">
+
+                    <div>
+
+                        🟢 Disponibilidad
+
+                        <strong>99.97%</strong>
+
+                    </div>
+
+                    <div>
+
+                        🚨 Alertas críticas
+
+                        <strong>2</strong>
+
+                    </div>
+
+                    <div>
+
+                        🎫 Tickets abiertos
+
+                        <strong>24</strong>
+
+                    </div>
+
+                    <div>
+
+                        🌐 Dispositivos
+
+                        <strong>35</strong>
+
+                    </div>
+
+                </div>
 
             </div>
-
-            <div className="health-bar">
-
-                <div
-                    className="health-progress"
-                    style={{
-                        width: `${score}%`,
-                        background: color
-                    }}
-                />
-
-            </div>
-
-            <small>
-
-                Última actualización hace 5 segundos
-
-            </small>
 
         </div>
 

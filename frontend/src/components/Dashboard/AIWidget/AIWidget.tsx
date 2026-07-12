@@ -1,42 +1,110 @@
 import "./AIWidget.css";
 
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import PsychologyIcon from "@mui/icons-material/Psychology";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
 export default function AIWidget() {
 
     return (
 
         <div className="ai-widget">
 
-            <h2>🤖 Sentinel IA</h2>
+            <div className="ai-header">
 
-            <div className="ai-card">
+                <div className="ai-title">
 
-                <h3>Resumen Inteligente</h3>
+                    <SmartToyIcon />
 
-                <p>
+                    <h3>Sentinel AI</h3>
 
-                    • 2 tickets con riesgo de incumplir SLA
+                </div>
 
-                </p>
+                <span className="ai-status">
 
-                <p>
+                    ONLINE
 
-                    • Cliente con mayor actividad: Banco Nacional
-
-                </p>
-
-                <p>
-
-                    • Tiempo promedio de resolución: 38 min
-
-                </p>
-
-                <p>
-
-                    • Prioridad predominante: Alta
-
-                </p>
+                </span>
 
             </div>
+
+            <div className="ai-body">
+
+                <div className="ai-card">
+
+                    <PsychologyIcon className="brain"/>
+
+                    <div>
+
+                        <h4>
+
+                            Resumen Ejecutivo
+
+                        </h4>
+
+                        <p>
+
+                            Se detectaron 2 alertas críticas y un servidor con consumo elevado de CPU.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div className="ai-card">
+
+                    <PsychologyIcon className="brain"/>
+
+                    <div>
+
+                        <h4>
+
+                            Riesgo
+
+                        </h4>
+
+                        <p>
+
+                            El SLA permanece estable. No se detectan incidentes de alto impacto.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div className="ai-card">
+
+                    <PsychologyIcon className="brain"/>
+
+                    <div>
+
+                        <h4>
+
+                            Recomendación
+
+                        </h4>
+
+                        <p>
+
+                            Revisar SQL Server 02 antes del mediodía y validar el crecimiento de CPU.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <button className="ai-button">
+
+                Abrir Sentinel AI
+
+                <ArrowForwardIcon/>
+
+            </button>
 
         </div>
 

@@ -1,86 +1,148 @@
 .ai-widget{
 
-    margin-top:30px;
+    background:linear-gradient(180deg,#162D46,#12263A);
 
-    background:#15263f;
+    border:1px solid #214564;
 
-    border-radius:16px;
+    border-radius:18px;
 
-    padding:25px;
+    padding:22px;
 
-    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:space-between;
+
+    height:100%;
 
 }
 
-.ai-widget h2{
+.ai-header{
 
-    margin:0 0 20px 0;
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.ai-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    color:white;
+
+}
+
+.ai-title h3{
+
+    margin:0;
+
+}
+
+.ai-status{
+
+    background:#173D34;
 
     color:#20c997;
 
-    font-size:24px;
+    padding:6px 14px;
 
-    font-weight:700;
+    border-radius:25px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.ai-body{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
 
 }
 
 .ai-card{
 
-    background:#1d3354;
+    display:flex;
 
-    border-left:5px solid #20c997;
+    gap:15px;
 
-    border-radius:12px;
+    background:#0F2234;
 
-    padding:20px;
+    padding:15px;
+
+    border-radius:14px;
 
 }
 
-.ai-card h3{
+.brain{
 
-    margin:0 0 15px 0;
+    color:#20c997;
+
+    font-size:30px!important;
+
+}
+
+.ai-card h4{
+
+    margin:0;
 
     color:white;
 
-    font-size:18px;
+    margin-bottom:6px;
 
 }
 
 .ai-card p{
 
-    color:#c9d4e5;
+    margin:0;
 
-    line-height:1.8;
+    color:#8FA8BE;
 
-    margin-bottom:20px;
+    line-height:1.5;
 
-}
-
-.ai-actions{
-
-    display:flex;
-
-    gap:15px;
-
-    flex-wrap:wrap;
+    font-size:14px;
 
 }
 
 .ai-button{
 
-    background:#20c997;
-
-    color:white;
+    margin-top:25px;
 
     border:none;
 
-    border-radius:8px;
+    background:#20c997;
 
-    padding:12px 18px;
+    color:#08161F;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    font-weight:bold;
 
     cursor:pointer;
 
-    font-weight:600;
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
 
     transition:.25s;
 
@@ -88,20 +150,8 @@
 
 .ai-button:hover{
 
-    transform:translateY(-2px);
+    transform:translateY(-3px);
 
-    background:#19b486;
-
-}
-
-.ai-button.secondary{
-
-    background:#3b82f6;
-
-}
-
-.ai-button.secondary:hover{
-
-    background:#2563eb;
+    background:#32e6af;
 
 }

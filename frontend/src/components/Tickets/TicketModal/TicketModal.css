@@ -1,0 +1,103 @@
+.modal-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:999;
+
+}
+
+.ticket-modal{
+
+    width:520px;
+
+    background:#13283D;
+
+    border:1px solid #214564;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+.ticket-modal h2{
+
+    color:white;
+
+    margin:0 0 10px;
+
+}
+
+.ticket-modal input,
+.ticket-modal select,
+.ticket-modal textarea{
+
+    background:#0F2234;
+
+    border:1px solid #214564;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:10px;
+
+}
+
+.modal-buttons{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+}
+
+.cancel{
+
+    background:#dc3545;
+
+    color:white;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.save{
+
+    background:#20c997;
+
+    color:#08161F;
+
+    border:none;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}

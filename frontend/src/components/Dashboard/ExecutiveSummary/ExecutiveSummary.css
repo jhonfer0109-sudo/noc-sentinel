@@ -2,9 +2,9 @@
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 
-    gap:20px;
+    gap:22px;
 
     margin-bottom:30px;
 
@@ -12,29 +12,37 @@
 
 .summary-card{
 
-    background:#13283D;
+    background:linear-gradient(180deg,#162D46,#12263A);
 
     border-radius:18px;
 
     padding:22px;
 
-    display:flex;
-
-    align-items:center;
-
-    gap:18px;
-
     border:1px solid #214564;
 
-    transition:.25s;
+    transition:.3s;
+
+    cursor:pointer;
 
 }
 
 .summary-card:hover{
 
-    transform:translateY(-5px);
+    transform:translateY(-6px);
 
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
+    box-shadow:0 18px 35px rgba(0,0,0,.35);
+
+}
+
+.summary-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
 
 }
 
@@ -46,48 +54,92 @@
 
 .summary-card h4{
 
+    margin:0;
+
     color:#8FA8BE;
 
-    margin:0 0 8px;
-
     font-size:15px;
+
+    font-weight:500;
 
 }
 
 .summary-card strong{
 
+    display:block;
+
+    margin-top:12px;
+
+    font-size:34px;
+
     color:white;
 
-    font-size:28px;
+    font-weight:700;
+
+}
+
+.summary-card small{
+
+    display:block;
+
+    margin-top:10px;
+
+    color:#7E95A9;
+
+}
+
+.trend{
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.positive{
+
+    color:#20c997;
+
+}
+
+.negative{
+
+    color:#ff5c5c;
+
+}
+
+.neutral{
+
+    color:#4db8ff;
 
 }
 
 .success{
 
-    border-left:6px solid #20c997;
+    border-top:4px solid #20c997;
 
 }
 
 .danger{
 
-    border-left:6px solid #dc3545;
+    border-top:4px solid #dc3545;
 
 }
 
 .primary{
 
-    border-left:6px solid #3b82f6;
+    border-top:4px solid #3b82f6;
 
 }
 
 .info{
 
-    border-left:6px solid #8b5cf6;
+    border-top:4px solid #8b5cf6;
 
 }
 
 .warning{
 
-    border-left:6px solid #ffc107;
+    border-top:4px solid #ffc107;
 
 }

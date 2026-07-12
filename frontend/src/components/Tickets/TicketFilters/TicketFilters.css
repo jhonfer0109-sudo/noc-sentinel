@@ -1,0 +1,41 @@
+.ticket-filters{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+}
+
+.ticket-filters input{
+
+    flex:1;
+
+    padding:12px;
+
+    background:#162D46;
+
+    border:1px solid #214564;
+
+    color:white;
+
+    border-radius:10px;
+
+}
+
+.ticket-filters select{
+
+    padding:12px;
+
+    background:#162D46;
+
+    border:1px solid #214564;
+
+    color:white;
+
+    border-radius:10px;
+
+    min-width:180px;
+
+}

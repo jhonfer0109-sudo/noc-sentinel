@@ -9,7 +9,7 @@ export default function LoginForm() {
 
     const navigate = useNavigate();
 
-    const [username, setUsername] = useState("");
+    const [correo, setCorreo] = useState("");
 
     const [password, setPassword] = useState("");
 
@@ -25,7 +25,7 @@ export default function LoginForm() {
 
         const response = await AuthService.login({
 
-            username,
+            correo,
 
             password
 
@@ -35,7 +35,7 @@ export default function LoginForm() {
 
         if (!response.success) {
 
-            setError("Usuario o contraseña incorrectos");
+            setError("Correo o contraseña incorrectos");
 
             return;
 
@@ -57,13 +57,13 @@ export default function LoginForm() {
 
             <input
 
-                type="text"
+                type="email"
 
-                placeholder="Usuario"
+                placeholder="Correo electrónico"
 
-                value={username}
+                value={correo}
 
-                onChange={(e) => setUsername(e.target.value)}
+                onChange={(e) => setCorreo(e.target.value)}
 
             />
 

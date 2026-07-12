@@ -2,76 +2,112 @@ import "./TicketTable.css";
 
 import { useEffect, useMemo, useState } from "react";
 
+import TicketFilters from "../TicketFilters/TicketFilters";
+import TicketModal from "../TicketModal/TicketModal";
+
 import { TicketService } from "../../../services/TicketService";
+
 import type { Ticket } from "../../../types/Ticket";
 
-import TicketDrawer from "../TicketDrawer/TicketDrawer";
-import NewTicketModal from "../NewTicketModal/NewTicketModal";
+export default function TicketTable(){
 
-export default function TicketTable() {
+    const [tickets,setTickets]=useState<Ticket[]>([]);
 
-    const [tickets, setTickets] = useState<Ticket[]>([]);
-    const [busqueda, setBusqueda] = useState("");
+    const [open,setOpen]=useState(false);
 
-    const [ticketSeleccionado, setTicketSeleccionado] = useState<Ticket | null>(null);
-    const [drawerOpen, setDrawerOpen] = useState(false);
+    const [search,setSearch]=useState("");
 
-    const [modalOpen, setModalOpen] = useState(false);
+    const [status,setStatus]=useState("");
 
-    useEffect(() => {
+    const [priority,setPriority]=useState("");
 
-        TicketService.getTickets().then(setTickets);
+    useEffect(()=>{
 
-    }, []);
+        TicketService.getTickets()
 
-    const ticketsFiltrados = useMemo(() => {
+            .then(setTickets);
 
-        return tickets.filter(ticket =>
+    },[]);
 
-            ticket.numero.toLowerCase().includes(busqueda.toLowerCase()) ||
+    function addTicket(ticket:Ticket){
 
-            ticket.titulo.toLowerCase().includes(busqueda.toLowerCase()) ||
+        setTickets(previous=>[ticket,...previous]);
 
-            ticket.cliente.toLowerCase().includes(busqueda.toLowerCase())
+    }
 
-        );
+    const filtered=useMemo(()=>{
 
-    }, [tickets, busqueda]);
+        return tickets.filter(ticket=>{
 
-    return (
+            const matchSearch=
+
+                ticket.id.toLowerCase().includes(search.toLowerCase()) ||
+
+                ticket.titulo.toLowerCase().includes(search.toLowerCase()) ||
+
+                ticket.cliente.toLowerCase().includes(search.toLowerCase());
+
+            const matchStatus=
+
+                status==="" ||
+
+                ticket.estado===status;
+
+            const matchPriority=
+
+                priority==="" ||
+
+                ticket.prioridad===priority;
+
+            return matchSearch && matchStatus && matchPriority;
+
+        });
+
+    },[tickets,search,status,priority]);
+
+    return(
 
         <>
 
-            <div className="ticket-table">
+            <div className="ticket-container">
 
                 <div className="ticket-header">
 
-                    <h2>Centro de Tickets</h2>
+                    <h2>
 
-                    <div className="ticket-actions">
+                        Centro de Tickets
 
-                        <button
-                            className="btn-new"
-                            onClick={() => setModalOpen(true)}
-                        >
-                            + Nuevo Ticket
-                        </button>
+                    </h2>
 
-                        <input
+                    <button
 
-                            type="text"
+                        className="new-ticket"
 
-                            placeholder="Buscar ticket..."
+                        onClick={()=>setOpen(true)}
 
-                            value={busqueda}
+                    >
 
-                            onChange={(e) => setBusqueda(e.target.value)}
+                        + Nuevo Ticket
 
-                        />
-
-                    </div>
+                    </button>
 
                 </div>
+
+                <TicketFilters
+
+                    search={search}
+
+                    status={status}
+
+                    priority={priority}
+
+                    onSearch={setSearch}
+
+                    onStatus={setStatus}
+
+                    onPriority={setPriority}
+
+                />
 
                 <table>
 
@@ -99,39 +135,23 @@ export default function TicketTable() {
 
                     <tbody>
 
-                        {ticketsFiltrados.map(ticket => (
+                        {
 
-                            <tr key={ticket.id}>
+                            filtered.map(ticket=>(
 
-                                <td>{ticket.numero}</td>
+                                <tr key={ticket.id}>
 
-                                <td>{ticket.titulo}</td>
+                                    <td>{ticket.id}</td>
 
-                                <td>{ticket.cliente}</td>
+                                    <td>{ticket.titulo}</td>
 
-                                <td>
+                                    <td>{ticket.cliente}</td>
 
-                                    <span className={`badge prioridad-${ticket.prioridad.toLowerCase()}`}>
+                                    <td>{ticket.prioridad}</td>
 
-                                        {ticket.prioridad}
+                                    <td>{ticket.estado}</td>
 
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <span className={`badge estado-${ticket.estado.toLowerCase().replace(" ", "-")}`}>
-
-                                        {ticket.estado}
-
-                                    </span>
-
-                                </td>
-
-                                <td>
-
-                                    <div className="sla-container">
+                                    <td>
 
                                         <div className="sla-bar">
 
@@ -141,7 +161,7 @@ export default function TicketTable() {
 
                                                 style={{
 
-                                                    width: `${ticket.sla}%`
+                                                    width:`${ticket.sla}%`
 
                                                 }}
 
@@ -149,47 +169,31 @@ export default function TicketTable() {
 
                                         </div>
 
-                                        <span>{ticket.sla}%</span>
+                                        {ticket.sla}%
 
-                                    </div>
+                                    </td>
 
-                                </td>
+                                    <td>
 
-                                <td className="acciones">
+                                        <button className="btn-view">
 
-                                    <button
+                                            Ver
 
-                                        className="btn-ver"
+                                        </button>
 
-                                        onClick={() => {
+                                        <button className="btn-edit">
 
-                                            setTicketSeleccionado(ticket);
+                                            Editar
 
-                                            setDrawerOpen(true);
+                                        </button>
 
-                                        }}
+                                    </td>
 
-                                    >
+                                </tr>
 
-                                        👁 Ver
+                            ))
 
-                                    </button>
-
-                                    <button
-
-                                        className="btn-editar"
-
-                                    >
-
-                                        ✏ Editar
-
-                                    </button>
-
-                                </td>
-
-                            </tr>
-
-                        ))}
+                        }
 
                     </tbody>
 
@@ -197,21 +201,13 @@ export default function TicketTable() {
 
             </div>
 
-            <TicketDrawer
+            <TicketModal
 
-                open={drawerOpen}
+                open={open}
 
-                ticket={ticketSeleccionado}
+                onClose={()=>setOpen(false)}
 
-                onClose={() => setDrawerOpen(false)}
-
-            />
-
-            <NewTicketModal
-
-                open={modalOpen}
-
-                onClose={() => setModalOpen(false)}
+                onSave={addTicket}
 
             />
 

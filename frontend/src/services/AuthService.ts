@@ -1,7 +1,15 @@
+import axios from "axios";
+
 import type {
     LoginRequest,
     LoginResponse
 } from "../types/Auth";
+
+const api = axios.create({
+
+    baseURL: "http://localhost:8000"
+
+});
 
 export class AuthService {
 
@@ -9,45 +17,40 @@ export class AuthService {
         request: LoginRequest
     ): Promise<LoginResponse> {
 
-        await new Promise(resolve =>
-            setTimeout(resolve, 800)
-        );
+        try {
 
-        if (
-
-            request.username === "admin"
-
-            &&
-
-            request.password === "admin123"
-
-        ) {
+            const response = await api.post(
+                "/auth/login",
+                request
+            );
 
             return {
 
                 success: true,
 
-                token: "sentinel-token-demo",
+                token: response.data.access_token,
 
-                nombre: "Administrador",
+                nombre: "",
 
-                rol: "ADMIN"
+                rol: ""
+
+            };
+
+        } catch {
+
+            return {
+
+                success: false,
+
+                token: "",
+
+                nombre: "",
+
+                rol: ""
 
             };
 
         }
-
-        return {
-
-            success: false,
-
-            token: "",
-
-            nombre: "",
-
-            rol: ""
-
-        };
 
     }
 
